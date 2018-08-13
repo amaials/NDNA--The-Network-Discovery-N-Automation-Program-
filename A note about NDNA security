@@ -1,0 +1,24 @@
+
+A note about NDNA security:
+----------------------
+
+
+To keep the VM secure, be sure to follow all these recommendations:
+
+1. Don't change the VM from NAT to Bridged. Keep using NAT so the guest VM is not reachable directly, except from inside the Host Machine that runs the VM.
+
+2. Change the root password of the NDNA VM right away using passwd (default root password is dcdp)
+
+3. Don't change the MySQL root password. This is "dcdp" too, and coded into the application in many different shell and python scripts.
+
+4. iptables-persistent is installed and enabled on the Debian Linux VM, only allowing port 80/443, and port 22
+
+5. Even with ssh and http/https allowed through iptables to the Linux VM, you can not access it from anywhere on the network, 
+You can only access it logged into the Host machine (Windows machine for example) that's running the VM.. This is as long as you don't 
+enable these ports on the VM's host machine, don't enable bridging on the NIC (stay with NAT) and are running Windows firewall or equivalent on a MAC.
+
+6. SAMBA is not running on the Linux VM, nor is NFS.
+
+7. Do not recommend running an email client on the host machine used to run the VM. 
+
+8. If all above is followed, this makes it very secure. The the only way for someone to get into the Linux box is through two layers of security. 
