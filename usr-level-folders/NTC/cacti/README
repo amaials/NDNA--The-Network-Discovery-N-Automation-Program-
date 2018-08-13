@@ -1,0 +1,9 @@
+only run the following program:
+
+NTC-IP-v2.bash, e.g.
+
+./NTC-IP-v2.bash
+
+This will prompt you to run the NDNA to Cacti Integration on only L3 devices, which will then call the NTC-IP-L3.bash script.
+
+This way, you can choose to import all devices for an NDNA DataCenter/Site or just L3 devices.

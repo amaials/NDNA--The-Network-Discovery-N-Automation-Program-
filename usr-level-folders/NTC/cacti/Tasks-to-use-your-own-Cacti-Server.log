@@ -1,0 +1,45 @@
+
+Tasks to use your own Cacti Server:
+----------------------------------
+1. create the following directories on your Server:
+
+mkdir /usr/share/cacti/cli/tmp
+mkdir /usr/share/cacti/cli/NDNA
+
+----------------------------------
+2. Copy the following file from the NDNA Cacti NMS server into the same path on your Cacti Server, and make executable:
+
+/usr/share/cacti/cli/NDNA/NDNA-build-graphs-into-cacti.bash
+
+chmod 755 /usr/share/cacti/cli/NDNA/NDNA-build-graphs-into-cacti.bash
+
+----------------------------------
+3. Copy the following file from the NDNA Cacti NMS server into the same path on your Cacti Server, and make executable:
+
+/usr/share/cacti/cli/cacti-hosts-before-import.bash
+
+chmod 755 /usr/share/cacti/cli/cacti-hosts-before-import.bash
+
+
+4. Must have SSH enabled on your Cacti Server
+
+
+5. Create the following Header in Cacti under your top level Tree:(case sensitive)
+
+NDNA-Internetwork 
+
+(sorting type Alphabetic)
+
+
+6. Make sure your "Cisco Router" Host template has the following:
+-------------------------------------------------------------------
+Associated Graph Templates
+1) Cisco - CPU Usage	Delete
+2) Interface - Errors/Discards	Delete
+3) Interface - Non-Unicast Packets	Delete
+4) Interface - Traffic (bits/sec, Total Bandwidth)	
+5) Interface - Unicast Packets
+
+Associated Data Queries
+1) SNMP - Get Processor Information	
+2) SNMP - Interface Statistics
